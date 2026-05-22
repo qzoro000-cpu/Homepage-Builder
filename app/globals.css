@@ -1,0 +1,324 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --background: oklch(0.98 0.002 75);
+  --foreground: oklch(0.15 0.01 75);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.15 0.01 75);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.15 0.01 75);
+  --primary: oklch(0.35 0.08 75);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.96 0.005 75);
+  --secondary-foreground: oklch(0.25 0.01 75);
+  --muted: oklch(0.94 0.005 75);
+  --muted-foreground: oklch(0.5 0.01 75);
+  --accent: oklch(0.55 0.12 45);
+  --accent-foreground: oklch(0.99 0 0);
+  --destructive: oklch(0.55 0.2 25);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: oklch(0.91 0.005 75);
+  --input: oklch(0.91 0.005 75);
+  --ring: oklch(0.35 0.08 75);
+  --chart-1: oklch(0.55 0.12 45);
+  --chart-2: oklch(0.6 0.1 160);
+  --chart-3: oklch(0.5 0.08 250);
+  --chart-4: oklch(0.7 0.1 85);
+  --chart-5: oklch(0.65 0.15 330);
+  --radius: 0.75rem;
+  --sidebar: oklch(1 0 0);
+  --sidebar-foreground: oklch(0.15 0.01 75);
+  --sidebar-primary: oklch(0.35 0.08 75);
+  --sidebar-primary-foreground: oklch(0.99 0 0);
+  --sidebar-accent: oklch(0.96 0.005 75);
+  --sidebar-accent-foreground: oklch(0.25 0.01 75);
+  --sidebar-border: oklch(0.93 0.005 75);
+  --sidebar-ring: oklch(0.35 0.08 75);
+  --success: oklch(0.6 0.15 145);
+  --success-foreground: oklch(0.99 0 0);
+  --warning: oklch(0.75 0.15 85);
+  --warning-foreground: oklch(0.25 0.05 85);
+}
+
+.dark {
+  --background: oklch(0.145 0 0);
+  --foreground: oklch(0.985 0 0);
+  --card: oklch(0.145 0 0);
+  --card-foreground: oklch(0.985 0 0);
+  --popover: oklch(0.145 0 0);
+  --popover-foreground: oklch(0.985 0 0);
+  --primary: oklch(0.985 0 0);
+  --primary-foreground: oklch(0.205 0 0);
+  --secondary: oklch(0.269 0 0);
+  --secondary-foreground: oklch(0.985 0 0);
+  --muted: oklch(0.269 0 0);
+  --muted-foreground: oklch(0.708 0 0);
+  --accent: oklch(0.269 0 0);
+  --accent-foreground: oklch(0.985 0 0);
+  --destructive: oklch(0.396 0.141 25.723);
+  --destructive-foreground: oklch(0.637 0.237 25.331);
+  --border: oklch(0.269 0 0);
+  --input: oklch(0.269 0 0);
+  --ring: oklch(0.439 0 0);
+  --chart-1: oklch(0.488 0.243 264.376);
+  --chart-2: oklch(0.696 0.17 162.48);
+  --chart-3: oklch(0.769 0.188 70.08);
+  --chart-4: oklch(0.627 0.265 303.9);
+  --chart-5: oklch(0.645 0.246 16.439);
+  --sidebar: oklch(0.205 0 0);
+  --sidebar-foreground: oklch(0.985 0 0);
+  --sidebar-primary: oklch(0.488 0.243 264.376);
+  --sidebar-primary-foreground: oklch(0.985 0 0);
+  --sidebar-accent: oklch(0.269 0 0);
+  --sidebar-accent-foreground: oklch(0.985 0 0);
+  --sidebar-border: oklch(0.269 0 0);
+  --sidebar-ring: oklch(0.439 0 0);
+}
+
+@theme inline {
+  --font-sans: 'Geist', 'Geist Fallback';
+  --font-mono: 'Geist Mono', 'Geist Mono Fallback';
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* ─────────────────────────────────────────────────────────
+   LANDING PREVIEW — Scoped styles for .lp
+   All variables are scoped under .lp so they don't bleed
+   into the CMS's own Tailwind theme.
+───────────────────────────────────────────────────────── */
+
+.lp {
+  /* ── Hero 배경 테마 (light = 화이트+그레이 글로우) ── */
+  --lp-hero-bg:   #ffffff;
+  /* 비대칭 앰비언트 글로우: 우상단(크고 연함) + 좌하단(작고 진함) */
+  --lp-glow-tr:   radial-gradient(ellipse 65% 55% at 88% 2%,  rgba(180,180,185,0.38) 0%, transparent 70%);
+  --lp-glow-bl:   radial-gradient(ellipse 48% 42% at 10% 96%, rgba(155,158,165,0.28) 0%, transparent 68%);
+
+  /* ── Canonical LP colour tokens ── */
+  --lp-bg:         oklch(0.97 0.018 85);
+  --lp-fg:         oklch(0.14 0.015 60);
+  --lp-surface:    oklch(0.94 0.016 85);
+  --lp-card:       oklch(0.99 0.006 85);
+  --lp-card-fg:    oklch(0.14 0.015 60);
+  --lp-muted:      oklch(0.90 0.013 85);
+  --lp-muted-fg:   oklch(0.44 0.014 60);
+  --lp-border:     oklch(0.84 0.013 80);
+  --lp-border-str: oklch(0.68 0.016 70);
+
+  /* ── Shadows ── */
+  --lp-shadow-soft:  0 1px 2px rgba(20,18,15,0.04), 0 8px 24px -12px rgba(20,18,15,0.08);
+  --lp-shadow-card:  0 1px 2px rgba(20,18,15,0.05), 0 20px 48px -24px rgba(20,18,15,0.18);
+  --lp-shadow-float: 0 2px 4px rgba(20,18,15,0.06), 0 32px 80px -32px rgba(20,18,15,0.28);
+
+  /* ── Gradients ── */
+  --lp-grad-metal:      linear-gradient(135deg, oklch(0.85 0.022 80) 0%, oklch(0.65 0.020 70) 45%, oklch(0.42 0.018 60) 100%);
+  --lp-grad-overlay:    linear-gradient(180deg, transparent 35%, oklch(0.08 0.010 60 / 0.60) 100%);
+  --lp-grad-shine:      linear-gradient(105deg, transparent 35%, oklch(1 0 0 / 0.10) 50%, transparent 65%);
+  --lp-grad-card-frost: linear-gradient(155deg, oklch(0.99 0.006 85) 0%, oklch(0.95 0.014 85) 55%, oklch(0.89 0.018 80) 100%);
+
+  /* ── Re-bind standard Tailwind theme vars to LP values
+        so the template's Tailwind classes resolve correctly
+        without touching the CMS theme outside .lp ── */
+  --background:    var(--lp-bg);
+  --foreground:    var(--lp-fg);
+  --surface:       var(--lp-surface);
+  --surface-elevated: var(--lp-surface);
+  --card:          var(--lp-card);
+  --card-foreground: var(--lp-card-fg);
+  --muted:         var(--lp-muted);
+  --muted-foreground: var(--lp-muted-fg);
+  --border:        var(--lp-border);
+  --border-strong: var(--lp-border-str);
+
+  /* ── Re-bind gradient / shadow vars ── */
+  --shadow-soft:          var(--lp-shadow-soft);
+  --shadow-card:          var(--lp-shadow-card);
+  --shadow-float:         var(--lp-shadow-float);
+  --gradient-metal:       var(--lp-grad-metal);
+  --gradient-overlay:     var(--lp-grad-overlay);
+  --gradient-shine:       var(--lp-grad-shine);
+  --gradient-card-frost:  var(--lp-grad-card-frost);
+
+  background-color: var(--lp-bg);
+  color: var(--lp-fg);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-feature-settings: "ss01", "tnum";
+  letter-spacing: -0.005em;
+  word-break: keep-all;
+  overflow-wrap: break-word;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Glass utility classes — usable as .lp-glass-* OR as Tailwind @utility inside .lp ── */
+.lp-glass-white, .lp .glass-white {
+  background: rgba(255,255,255,0.70);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.55);
+  box-shadow: 0 2px 20px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+}
+.lp-glass-light, .lp .glass-light {
+  background: rgba(255,255,255,0.55);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.85);
+}
+.lp-glass-dark, .lp .glass-dark {
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.18);
+}
+.lp-glass-silver, .lp .glass-silver {
+  background: linear-gradient(135deg, rgba(200,205,215,0.30) 0%, rgba(170,175,190,0.20) 50%, rgba(145,150,168,0.14) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(220,225,235,0.40);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.25), 0 4px 24px rgba(0,0,0,0.18);
+}
+.lp-glass-ink, .lp .glass-ink {
+  background: rgba(16,14,12,0.88);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.12);
+}
+.lp-metal-text, .lp .metal-text {
+  background: var(--lp-grad-metal);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+.lp-font-display, .lp .font-display {
+  font-family: '명조Neo1', 'SandollMyeongjoNeo1', 'Sandoll 명조Neo1', Georgia, 'Times New Roman', serif;
+  font-weight: 300;
+  font-style: normal;
+}
+
+/* ── LP 제목·소제목 전용 명조 폰트 스택
+      h1~h3 및 섹션 타이틀에 Sandoll 명조Neo1 적용 + 볼드
+      본문(p, span, li 등)은 Inter 유지 ── */
+.lp h1,
+.lp h2,
+.lp h3 {
+  font-family: '명조Neo1', 'SandollMyeongjoNeo1', 'Sandoll 명조Neo1', Georgia, 'Times New Roman', serif;
+  font-weight: 700;
+}
+/* hairline */
+.lp .hairline {
+  border-top: 1px solid var(--lp-border);
+}
+
+/* ─────────────────────────────────────────────────────────
+   LP Dark Theme  (.lp[data-theme="dark"])
+   히어로 섹션 배경만 블랙+골드 글로우로 전환.
+   나머지 섹션(소개, 가격, FAQ 등)은 라이트 토큰 그대로 유지.
+───────────────────────────────────────────────────────── */
+.lp[data-theme="dark"] {
+  /* ── Hero 배경·글로우 변수 ── */
+  --lp-hero-bg:   oklch(0.09 0.006 55);
+  --lp-glow-tr:   radial-gradient(ellipse 65% 55% at 88% 2%,  rgba(201,168,92,0.28) 0%, transparent 70%);
+  --lp-glow-bl:   radial-gradient(ellipse 55% 50% at 8% 98%,  rgba(201,168,60,0.42) 0%, rgba(170,130,40,0.18) 50%, transparent 72%);
+}
+
+/* ── 히어로 섹션 내부 텍스트·버튼 색상 반전 (다크 배경에 맞춰)
+      .lp-hero-section 스코프 안에서만 적용되므로 다른 섹션 무영향 ── */
+.lp[data-theme="dark"] .lp-hero-section {
+  --lp-fg:         oklch(0.96 0.006 82);   /* 제목/버튼 텍스트 → 거의 흰색     */
+  --lp-muted-fg:   oklch(0.62 0.010 72);   /* 서브타이틀/라벨  → 밝은 회색     */
+  --lp-bg:         oklch(0.09 0.006 55);   /* CTA 주버튼 텍스트색 참조 (= 배경) */
+  --lp-border-str: oklch(0.38 0.012 70);   /* 보조버튼 아웃라인 → 연한 골드계열 */
+}
+
+/* Dark theme glass overrides — light bg → faint white on dark */
+.lp[data-theme="dark"] .glass-white,
+.lp[data-theme="dark"] .lp-glass-white {
+  background: rgba(255,255,255,0.07);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.14);
+  box-shadow: 0 2px 20px rgba(0,0,0,0.35), 0 1px 2px rgba(0,0,0,0.25);
+}
+.lp[data-theme="dark"] .glass-light,
+.lp[data-theme="dark"] .lp-glass-light {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255,255,255,0.18);
+}
+/* Gold accent utility for dark theme */
+.lp[data-theme="dark"] .lp-gold-text {
+  color: var(--lp-gold);
+}
+.lp[data-theme="dark"] .lp-gold-border {
+  border-color: var(--lp-gold-dim);
+}
+
+/* ── Rich Text Editor ──────────────────────────────────────────────────── */
+.rte-editor:empty:before {
+  content: attr(data-placeholder);
+  color: rgba(255,255,255,0.25);
+  pointer-events: none;
+}
+.rte-editor ul {
+  list-style: disc;
+  padding-left: 1.4em;
+}
+.rte-editor ol {
+  list-style: decimal;
+  padding-left: 1.4em;
+}
+.rte-editor li {
+  margin-bottom: 2px;
+}
